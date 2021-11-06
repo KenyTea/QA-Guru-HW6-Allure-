@@ -22,7 +22,7 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
-            maleClick = $(byText("Male")),
+            genterRadioButton = $("#genterWrapper"),
             userNumber = $("#userNumber"),
             dateOfBirthClick = $("#dateOfBirthInput"),
             monthSelect = $(".react-datepicker__month-select"),
@@ -67,9 +67,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage buttonMaleClick() {
+    public RegistrationPage selectGender(String value) {
         // Заполняем поле firstName
-        maleClick.click();
+        genterRadioButton.find(byText(value)).click();
         return this;
     }
 
@@ -90,7 +90,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setsubjects(String character) {
+    public RegistrationPage setSubjects(String character) {
         // Заполняем поле Subjects
         subjectsInput.scrollTo();
         subjectsInput.click();
@@ -138,7 +138,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage validation(String label, String value) {
+    public RegistrationPage validate(String label, String value) {
         responsTable.$(byText(label)).parent().shouldHave(text(value));
         return this;
     }

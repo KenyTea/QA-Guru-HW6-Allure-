@@ -14,49 +14,37 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomeWork5 extends TestBase {
-//    @Rule
-//    public  TestRule report = new TestReporter();
 
     @Test
     void studentsRegistration() {
 
-        Faker faker = new Faker(new Locale("ru"));
-        String address = faker.address().streetAddress();
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        int randomDay = faker.number().numberBetween(1, 30);
-        String day = Integer.toString(randomDay);
-
         registrationPage
                 .openPage("https://demoqa.com/automation-practice-form") // Открываем браузер и проверяем что страница загрузилась
-                .setFirstName(firstName) // Заполняем поле firstName
-                .setLastName(lastName) // Заполняем поле lastName
+                .setFirstName(randomFaker.firstName) // Заполняем поле firstName
+                .setLastName(randomFaker.lastName) // Заполняем поле lastName
                 .setEmail("qa.guru@gmail.com") // Заполняем поле email
-                .buttonMaleClick() // Кликаем Gender radio button
-                .setMobilePhone("7773557777") // Заполняем поле Mobile(10 Digits)
-                //registrationPage.calendarComponent.setDateOfBirthday("5", "1982", "15");  Реализовал, но тогда код не красивый!
-                .setDateOfBirthday("5", "1982", day) // Заполняем поле Date of Birth
-                .setsubjects("e") // Заполняем поле Subjects
+                .selectGender("Male") // Кликаем Gender radio button
+                .setMobilePhone("7773557777"); // Заполняем поле Mobile(10 Digits)
+        registrationPage.calendarComponent.setDateOfBirthday("5", "1982", randomFaker.day); // Заполняем поле Date of Birth
+        registrationPage
+                .setSubjects("e") // Заполняем поле Subjects
                 .buttonHobbiesClick() // Кликаем Hobbies checkbox
                 .setPicture("resources\\p1.PNG") // Загрузка картинки
-                .setCurrentAddress(address) // Заполнение Current Address
+                .setCurrentAddress(randomFaker.address) // Заполнение Current Address
                 .setState("NCR") // Select state
                 .setCity("Gurgaon") //Select City
                 .setSubmit() // Нажименм кнопку Subjects
                 // Проверка:
-                .validation("Student Name", firstName + " " + lastName)
-                .validation("Student Email", "qa.guru@gmail.com")
-                .validation("Gender", "Male")
-                .validation("Mobile", "7773557777")
-                .validation("Date of Birth", day + " June,1982")
-                .validation("Subjects", "English")
-                .validation("Hobbies", "Sports")
-                .validation("Picture", "p1.PNG")
-                .validation("Address", address)
-                .validation("State and City", "NCR Gurgaon");
-
-        // Для проверки
-        sleep(2000);
+                .validate("Student Name", randomFaker.firstName + " " + randomFaker.lastName)
+                .validate("Student Email", "qa.guru@gmail.com")
+                .validate("Gender", "Male")
+                .validate("Mobile", "7773557777")
+                .validate("Date of Birth", randomFaker.day + " June,1982")
+                .validate("Subjects", "English")
+                .validate("Hobbies", "Sports")
+                .validate("Picture", "p1.PNG")
+                .validate("Address", randomFaker.address)
+                .validate("State and City", "NCR Gurgaon");
 
     }
 
