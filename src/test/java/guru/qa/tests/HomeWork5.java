@@ -28,7 +28,7 @@ public class HomeWork5 extends TestBase {
         registrationPage.calendarComponent.setDateOfBirthday("5", "1982", randomFaker.day); // Заполняем поле Date of Birth
         registrationPage
                 .setSubjects("e") // Заполняем поле Subjects
-                .buttonHobbiesClick() // Кликаем Hobbies checkbox
+                .hobbySelect("Sports") // Кликаем Hobbies checkbox
                 .setPicture("resources\\p1.PNG") // Загрузка картинки
                 .setCurrentAddress(randomFaker.address) // Заполнение Current Address
                 .setState("NCR") // Select state

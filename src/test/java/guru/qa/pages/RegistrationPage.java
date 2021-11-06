@@ -29,7 +29,7 @@ public class RegistrationPage {
             yearSelect = $(".react-datepicker__year-select"),
             subjectsInput = $("#subjectsInput"),
             english = $(byText("English")),
-            hobbies = $(byText("Sports")),
+            hobbies = $("#hobbiesWrapper"),
             uploadPicture = $("#uploadPicture"),
             currentAddress = $("#currentAddress"),
             stateClick = $("#state"),
@@ -99,9 +99,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage buttonHobbiesClick() {
+    public RegistrationPage hobbySelect(String value) {
         // Кликаем Hobbies checkbox
-        hobbies.click();
+        hobbies.find(byText(value)).click();
         return this;
     }
 
