@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import guru.qa.components.CalendarComponent;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
+
     // locators and elements
     private final String URL = "https://demoqa.com/automation-practice-form";
     private final String FORM_TITLE = "Student Registration Form";
@@ -143,6 +145,5 @@ public class RegistrationPage {
         responsTable.$(byText(label)).parent().shouldHave(text(value));
         return  this;
     }
-
 
 }
