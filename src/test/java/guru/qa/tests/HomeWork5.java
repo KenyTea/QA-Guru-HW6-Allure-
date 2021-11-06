@@ -1,6 +1,7 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Condition;
+import com.github.javafaker.Faker;
 import guru.qa.tests.TestBase;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,9 @@ public class HomeWork5 extends TestBase {
     @Test
     void studentsRegistration() {
 
+        Faker faker = new Faker();
+        String address = faker.address().streetAddress();
+
         registrationPage
                 .openPage("https://demoqa.com/automation-practice-form") // Открываем браузер и проверяем что страница загрузилась
                 .setFirstName("Alex") // Заполняем поле firstName
@@ -30,7 +34,7 @@ public class HomeWork5 extends TestBase {
                 .setsubjects("e") // Заполняем поле Subjects
                 .buttonHobbiesClick() // Кликаем Hobbies checkbox
                 .setPicture("resources\\p1.PNG") // Загрузка картинки
-                .setCurrentAddress("sssss") // Заполнение Current Address
+                .setCurrentAddress(address) // Заполнение Current Address
                 .setState("NCR") // Select state
                 .setCity("Gurgaon") //Select City
                 .setSubmit() // Нажименм кнопку Subjects
@@ -43,7 +47,7 @@ public class HomeWork5 extends TestBase {
                 .validation("Subjects", "English")
                 .validation("Hobbies", "Sports")
                 .validation("Picture", "p1.PNG")
-                .validation("Address", "sssss")
+                .validation("Address", address)
                 .validation("State and City", "NCR Gurgaon");
 
         // Для проверки

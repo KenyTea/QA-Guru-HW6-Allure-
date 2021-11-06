@@ -2,6 +2,7 @@ package guru.qa.pages;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.components.CalendarComponent;
 
@@ -27,7 +28,6 @@ public class RegistrationPage {
             dateOfBirthClick = $("#dateOfBirthInput"),
             monthSelect = $(".react-datepicker__month-select"),
             yearSelect = $(".react-datepicker__year-select"),
-            // daySelect = $$(".react-datepicker__day");
             subjectsInput = $("#subjectsInput"),
             english = $(byText("English")),
             hobbies = $(byText("Sports")),
@@ -37,6 +37,8 @@ public class RegistrationPage {
             cityClick = $("#city"),
             submitClick = $("#submit"),
             responsTable = $(".table-responsive");
+
+            ElementsCollection daySelect = $$(".react-datepicker__day");
 
 
     // actions
@@ -85,7 +87,7 @@ public class RegistrationPage {
         dateOfBirthClick.click();
         monthSelect.selectOptionByValue(month);
         yearSelect.selectOptionByValue(year);
-        $$(".react-datepicker__day").find(text(day)).click();
+        daySelect.find(text(day)).click();
         return this;
     }
 
