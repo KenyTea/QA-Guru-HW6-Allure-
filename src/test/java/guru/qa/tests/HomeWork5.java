@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -19,7 +20,7 @@ public class HomeWork5 extends TestBase {
     @Test
     void studentsRegistration() {
 
-        Faker faker = new Faker();
+        Faker faker = new Faker(new Locale("ru"));
         String address = faker.address().streetAddress();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
@@ -30,7 +31,7 @@ public class HomeWork5 extends TestBase {
                 .openPage("https://demoqa.com/automation-practice-form") // Открываем браузер и проверяем что страница загрузилась
                 .setFirstName(firstName) // Заполняем поле firstName
                 .setLastName(lastName) // Заполняем поле lastName
-                .setEmail("Vass@gmail.com") // Заполняем поле email
+                .setEmail("qa.guru@gmail.com") // Заполняем поле email
                 .buttonMaleClick() // Кликаем Gender radio button
                 .setMobilePhone("7773557777") // Заполняем поле Mobile(10 Digits)
                 //registrationPage.calendarComponent.setDateOfBirthday("5", "1982", "15");  Реализовал, но тогда код не красивый!
@@ -44,7 +45,7 @@ public class HomeWork5 extends TestBase {
                 .setSubmit() // Нажименм кнопку Subjects
                 // Проверка:
                 .validation("Student Name", firstName + " " + lastName)
-                .validation("Student Email", "Vass@gmail.com")
+                .validation("Student Email", "qa.guru@gmail.com")
                 .validation("Gender", "Male")
                 .validation("Mobile", "7773557777")
                 .validation("Date of Birth", day + " June,1982")
