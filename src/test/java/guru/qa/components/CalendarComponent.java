@@ -1,7 +1,6 @@
 package guru.qa.components;
 
 import com.codeborne.selenide.SelenideElement;
-import guru.qa.pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;

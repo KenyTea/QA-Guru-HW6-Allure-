@@ -1,15 +1,12 @@
 package guru.qa.pages;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
 import guru.qa.components.CalendarComponent;
 
 import java.io.File;
 import java.time.Duration;
-import java.util.Collection;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -40,7 +37,7 @@ public class RegistrationPage {
             submitClick = $("#submit"),
             responsTable = $(".table-responsive");
 
-            ElementsCollection daySelect = $$(".react-datepicker__day");
+    ElementsCollection daySelect = $$(".react-datepicker__day");
 
 
     // actions
@@ -143,7 +140,7 @@ public class RegistrationPage {
 
     public RegistrationPage validation(String label, String value) {
         responsTable.$(byText(label)).parent().shouldHave(text(value));
-        return  this;
+        return this;
     }
 
 }
