@@ -21,11 +21,13 @@ public class HomeWork5 extends TestBase {
 
         Faker faker = new Faker();
         String address = faker.address().streetAddress();
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
 
         registrationPage
                 .openPage("https://demoqa.com/automation-practice-form") // Открываем браузер и проверяем что страница загрузилась
-                .setFirstName("Alex") // Заполняем поле firstName
-                .setLastName("Vass") // Заполняем поле lastName
+                .setFirstName(firstName) // Заполняем поле firstName
+                .setLastName(lastName) // Заполняем поле lastName
                 .setEmail("Vass@gmail.com") // Заполняем поле email
                 .buttonMaleClick() // Кликаем Gender radio button
                 .setMobilePhone("7773557777") // Заполняем поле Mobile(10 Digits)
@@ -39,7 +41,7 @@ public class HomeWork5 extends TestBase {
                 .setCity("Gurgaon") //Select City
                 .setSubmit() // Нажименм кнопку Subjects
                 // Проверка:
-                .validation("Student Name", "Alex Vass")
+                .validation("Student Name", firstName + " " + lastName)
                 .validation("Student Email", "Vass@gmail.com")
                 .validation("Gender", "Male")
                 .validation("Mobile", "7773557777")
