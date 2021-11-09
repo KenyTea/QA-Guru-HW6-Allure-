@@ -1,6 +1,11 @@
 package guru.qa.AnnotatedTest;
 
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
@@ -11,6 +16,12 @@ public class AnnotationTest {
     private static final int ISSUE_NUMBER = 64;
 
     private final Steps steps = new Steps();
+
+    @Owner("KenyTae")
+    @Feature("Gidhub")
+    @Story("Issues")
+    @DisplayName("Annotation Test")
+    @Link(name = "GitHub", url = "https://github.com/qa-guru")
 
     @Test
     public void checkIssue() {
