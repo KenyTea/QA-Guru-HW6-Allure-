@@ -15,7 +15,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationPage {
 
     // locators and elements
-    private final String URL = "https://demoqa.com/automation-practice-form";
     private final String FORM_TITLE = "Student Registration Form";
     private SelenideElement
             studentRegistrationForm = $(byText(FORM_TITLE)),
@@ -24,9 +23,6 @@ public class RegistrationPage {
             emailInput = $("#userEmail"),
             genterRadioButton = $("#genterWrapper"),
             userNumber = $("#userNumber"),
-            dateOfBirthClick = $("#dateOfBirthInput"),
-            monthSelect = $(".react-datepicker__month-select"),
-            yearSelect = $(".react-datepicker__year-select"),
             subjectsInput = $("#subjectsInput"),
             english = $(byText("English")),
             hobbies = $("#hobbiesWrapper"),
@@ -36,9 +32,6 @@ public class RegistrationPage {
             cityClick = $("#city"),
             submitClick = $("#submit"),
             responsTable = $(".table-responsive");
-
-    ElementsCollection daySelect = $$(".react-datepicker__day");
-
 
     // actions
     public RegistrationPage openPage(String url) {
@@ -80,15 +73,6 @@ public class RegistrationPage {
     }
 
     public CalendarComponent calendarComponent = new CalendarComponent();
-
-    public RegistrationPage setDateOfBirthday(String month, String year, String day) {
-        // Заполняем поле Date of Birth
-        dateOfBirthClick.click();
-        monthSelect.selectOptionByValue(month);
-        yearSelect.selectOptionByValue(year);
-        daySelect.find(text(day)).click();
-        return this;
-    }
 
     public RegistrationPage setSubjects(String character) {
         // Заполняем поле Subjects

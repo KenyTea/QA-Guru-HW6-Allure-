@@ -15,11 +15,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HomeWork5 extends TestBase {
 
+    private final String URL = "https://demoqa.com/automation-practice-form";
+
     @Test
     void studentsRegistration() {
 
         registrationPage
-                .openPage("https://demoqa.com/automation-practice-form") // Открываем браузер и проверяем что страница загрузилась
+                .openPage(URL) // Открываем браузер и проверяем что страница загрузилась
                 .setFirstName(randomFaker.firstName) // Заполняем поле firstName
                 .setLastName(randomFaker.lastName) // Заполняем поле lastName
                 .setEmail("qa.guru@gmail.com") // Заполняем поле email
