@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class AnnotationTest {
+public class AnnotationTest extends Steps {
     private static final String URL = "https://github.com/qa-guru";
     private static final String REPOSITORY = "allure-notifications";
     private static final int ISSUE_NUMBER = 64;

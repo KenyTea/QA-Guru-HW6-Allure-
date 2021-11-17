@@ -1,7 +1,15 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id "io.qameta.allure" version "2.9.6"
 }
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 
 allure {
     report {
@@ -18,19 +26,19 @@ allure {
     }
 }
 
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:5.25.0",
-            "org.junit.jupiter:junit-jupiter-api:5.8.0",
-            'io.qameta.allure:allure-selenide:2.14.0')
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.0"
-    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.32'
-    implementation 'com.github.javafaker:javafaker:1.0.2'
+            'org.junit.jupiter:junit-jupiter-api:5.7.2',
+            'org.junit.jupiter:junit-jupiter-params:5.7.2',
+            'io.qameta.allure:allure-selenide:2.14.0',
+            'com.codeborne:selenide:5.25.0'
+    )
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.7.2')
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.7'
 }
 
 test {
